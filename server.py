@@ -11,7 +11,8 @@ client, addr = srv.accept()
 try:
     for index in range(1, 10):
         data = client.recv(2048)   #принимаем данные(объем в байтах)
-        print(data, decode("utf-8"))
+        data_str = data.decode("utf-8")
+        print(data)
         if not data:
             break
         result = f"{data}\n"

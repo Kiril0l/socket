@@ -7,8 +7,8 @@ srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 srv.bind((HOST, PORT))
 srv.listen(20)   #очередь обращений
-client, addr = srv.accept()
 try:
+    client, addr = srv.accept()  #установка соединения(данные о соединении)
     for index in range(1, 10):
         data = client.recv(2048)   #принимаем данные(объем в байтах)
         data_str = data.decode("utf-8")
